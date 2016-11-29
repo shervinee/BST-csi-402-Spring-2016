@@ -1,0 +1,35 @@
+#include "P1Headers.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+nodeptr createNode(char* inpNode)//creates the new node 
+{
+  nodeptr tempNode = (nodeptr)malloc(sizeof(node));
+  if(tempNode == NULL)//malloc error checking
+    {
+      fprintf(stderr,"malloc error");
+      exit(1);
+    }
+  tempNode->key = inpNode; //the new node will only have the key, no child 
+  tempNode->leftChild == NULL;
+  tempNode->rightChild == NULL;
+  return tempNode;
+}
+
+nodeptr  insert(nodeptr prnt, char* inpStr)
+     /*inserting into the binary tree recursively after defining its base case in creatNode function */ 
+{
+  if(prnt == NULL)//the tree(parent node) is null so return the input as the tree
+    {
+      return createNode(inpStr);
+    }
+  if(strcmp(inpStr,prnt->key)<0)//if the input preceds its corresponding  parent 
+    {
+      prnt->leftChild = insert(prnt->leftChild,inpStr);
+    }
+  else if(strcmp(inpStr,prnt->key)>0)//if the input follows its corresponding parent
+    {
+      prnt->rightChild = insert(prnt->rightChild,inpStr);
+    }
+  return prnt;
+}
