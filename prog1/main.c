@@ -68,11 +68,11 @@ int main(int argc, char* argv[])
       /* closing the files */
       if(fclose(inpf) == EOF)
 	{
-	  fprintf(stderr, "Colud not close the %s file\n", argv[1]);
+	  fprintf(stderr, "could not close the %s file\n", argv[1]);
 	}
  if(fclose(outpf) == EOF)
 	{
-	  fprintf(stderr, "Colud not close the %s file\n", argv[2]);
+	  fprintf(stderr, "could not close the %s file\n", argv[2]);
 	}
  free(strInp);//frees the allocated memeory 
  return 0;   
